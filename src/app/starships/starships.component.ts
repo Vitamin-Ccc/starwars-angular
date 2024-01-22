@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { StarshipsService } from '../services/starships.service';
 import { StarshipsResult } from '../services/interfaces';
@@ -21,7 +20,7 @@ export class StarshipsComponent {
   loadStarships() {
     this.starshipService.getStarships().subscribe((starships) => {
       console.log(starships)
-      this.starships = starships.results
+      this.starships = starships
     })
   }
 }
