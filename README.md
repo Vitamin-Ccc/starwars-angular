@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Accomplishment
+## Accomplishments
 
 1. Home Page shows a list of people, planets, starships.
 2. The People Page only displays the first 10 people because Swapi is a paginated API. Although I successfully used rxjs to fetch all the available data, the loading process was excessively slow. I commented out this functionality in the People Service to continue development without extended loading times.
