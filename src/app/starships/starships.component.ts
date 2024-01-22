@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { StarshipsService } from '../services/starships.service';
+import { StarshipsResult } from '../services/interfaces';
 
 @Component({
   selector: 'app-starships',
@@ -10,29 +11,17 @@ import { StarshipsService } from '../services/starships.service';
   styleUrl: './starships.component.css'
 })
 export class StarshipsComponent {
-  // http = inject(HttpClient)
-  // starships: any = []
-
-  // ngOnInit(): void {
-  //   this.fetchStarships()
-  // }
-
-  // fetchStarships() {
-  //   this.http.get('https://swapi.dev/api/starships')
-  //   .subscribe((starships: any) => {
-  //     console.log(starships.results)
-  //     this.starships = starships.results
-  //   })
-  // }
-
   private starshipService = inject(StarshipsService)
+  public starships: StarshipsResult[] = []
+
   constructor() {
-    this.loadPeople()
+    this.loadStarships()
   }
   
-  loadPeople() {
+  loadStarships() {
     this.starshipService.getStarships().subscribe((starships) => {
       console.log(starships)
+      this.starships = starships.results
     })
   }
 }

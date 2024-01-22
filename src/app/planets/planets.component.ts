@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { PlanetsService } from '../services/planets.service';
+import { PlanetsResult } from '../services/interfaces';
 
 @Component({
   selector: 'app-planets',
@@ -10,29 +10,17 @@ import { PlanetsService } from '../services/planets.service';
   styleUrl: './planets.component.css'
 })
 export class PlanetsComponent {
-  // http = inject(HttpClient)
-  // planets: any = []
-
-  // ngOnInit(): void {
-  //   this.fetchPlanets()
-  // }
-
-  // fetchPlanets() {
-  //   this.http.get('https://swapi.dev/api/planets')
-  //   .subscribe((planets: any) => {
-  //     console.log(planets.results)
-  //     this.planets = planets.results
-  //   })
-  // }
-
   private planetsService = inject(PlanetsService)
+  public planets: PlanetsResult[] = []
+
   constructor() {
-    this.loadPeople()
+    this.loadPlanets()
   }
   
-  loadPeople() {
+  loadPlanets() {
     this.planetsService.getPlanets().subscribe((planets) => {
       console.log(planets)
+      this.planets = planets
     })
   }
 
