@@ -26,7 +26,7 @@ export class PeopleService {
     return this.http.get<PeopleApiResult>(`${BASE_URL}/?page=${page}`)
   }
 
-  getPeopleDetails(id: string):Observable<PeopleResult> {
+  getPersonDetails(id: string):Observable<PeopleResult> {
     return this.http.get<PeopleResult>(`${BASE_URL}/${id}`)
   }
 }
