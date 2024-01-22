@@ -23,6 +23,5 @@ export class PersonDetailsComponent{
     })
   }
 
-
   constructor() {}
 }
